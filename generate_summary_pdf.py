@@ -1,8 +1,10 @@
 from pathlib import Path
+import re
 import textwrap
 
 try:
     from reportlab.pdfgen import canvas
+    from reportlab.lib.utils import ImageReader
 except Exception as exc:  # pragma: no cover
     raise SystemExit(
         "reportlab is required. Install it with: pip install reportlab"
@@ -26,10 +28,35 @@ def clean_text(raw: str) -> list[str]:
         elif stripped.startswith("- "):
             cleaned.append("- " + stripped[2:])
         elif stripped.startswith("!["):
-            continue
+            cleaned.append(stripped)
         else:
             cleaned.append(stripped)
     return cleaned
+
+
+def draw_markdown_image(c, markdown_path: Path, line: str, y: float) -> float:
+    match = re.search(r"!\[[^\]]*\]\(([^)]+)\)", line)
+    if not match:
+        return y
+
+    image_rel = match.group(1).strip()
+    image_path = (markdown_path.parent / image_rel).resolve()
+    if not image_path.exists():
+        return y
+
+    if y < 160:
+        c.showPage()
+        y = 760
+
+    img = ImageReader(str(image_path))
+    width, height = img.getSize()
+    max_width = 440
+    scale = min(1.0, max_width / width)
+    draw_width = width * scale
+    draw_height = height * scale
+    x = (612 - draw_width) / 2
+    c.drawImage(img, x, y - draw_height, width=draw_width, height=draw_height, preserveAspectRatio=True)
+    return y - draw_height - 20
 
 
 def render_pdf(markdown_path: Path, pdf_path: Path) -> None:
@@ -41,11 +68,14 @@ def render_pdf(markdown_path: Path, pdf_path: Path) -> None:
     c.setAuthor("Joshua Kolo")
 
     y = 760
-    page_width = 612
     left_margin = 54
     wrap_width = 90
 
     for line in lines:
+        if re.search(r"!\[[^\]]*\]\(([^)]+)\)", line):
+            y = draw_markdown_image(c, markdown_path, line, y)
+            continue
+
         if y < 60:
             c.showPage()
             y = 760
