@@ -2,7 +2,7 @@
 
 Joshua Kolo · Student ID 301905772
 
-The portfolio uses fictional records for E-commerce Platform.
+This portfolio project employed the use of fictional record(s) for E-commerce Platform.
 
 - [Portfolio 1](portfolio-1-database-design/)
 - [Portfolio 2](portfolio-2-query-optimisation/)
