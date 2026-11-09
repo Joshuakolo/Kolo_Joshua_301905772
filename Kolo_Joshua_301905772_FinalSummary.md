@@ -8,7 +8,7 @@ My case study project is centred around an E-commerce Platform. The database for
 
 ## Portfolio 1: Database Design and Modelling
 
-The relational design was organised into 4 tables. Primary keys identify records, foreign keys preserve the links, and checks enforce the stated business rules. A customer may have at most one order whose status is cart; enforce a partial unique constraint on customer_id for rows with status cart. The normalisation examples show the sample data at 1NF, 2NF and 3NF. All 12 deliberately invalid inserts were rejected without changing the valid sample rows.
+The relational design was carefully organised into 4 tables. Primary keys identify records, foreign keys preserve the links, and checks enforce the stated business rules. A customer may have at most one order whose status is cart; enforce a partial unique constraint on customer_id for rows with status cart. The normalisation examples show the sample data at 1NF, 2NF and 3NF. All 12 deliberately invalid inserts were rejected without changing the valid sample rows.
 
 ![E-commerce Platform ER diagram](images/Kolo_Joshua_301905772_ERDiagram.png)
 
@@ -43,11 +43,16 @@ I proposed three MongoDB replica members across separate failure zones. The disc
 
 ## Individual reflection
 
-I kept customers, products, orders, order_items in separate tables so their details could be maintained without repeating them in every related record. A customer may have at most one order whose status is cart; enforce a partial unique constraint on customer_id for rows with status cart. The constraint tests check this alongside the required values and record links. One issue illustrated by the two-session exercise is that both sessions can read the same value before either update is committed. Locking the row before reading preserves both increments. The index comparison also shows why I need to check the execution plan as well as the final answer: the same result can require different amounts of database work.
+I organized my Project database by keeping customers, products, orders, and order items in separate tables. And as a result of this, I can easily manage their details without duplicating information across different records. It is important to note that a customer can have only one order that has the status of "cart." To ensure this, I had to prompt the set up of a special unique constraint on the customer ID for those cart orders. 
+
+I also learnt an interesting lesson during a two-session exercise: both sessions could read the same data before either made an update. To avoid issues with this, I had to carryout a few research and consult with those knowledgeable in this field and after that a conclusion was made and I locked the row before reading it, which helped preserve the increments correctly. 
+
+Additionally, I realized the importance of checking the execution plan along with the final results. In some instances, achieving the same outcome can require varying amounts of effort from the database, so understanding the underlying processes is crucial.
+
 
 ## AI-use declaration
 
-I used GitHub Copilot and the portfolio generator to help prepare the database model, scripts and explanations. The generator ran the PostgreSQL and MongoDB exercises, checked their outputs and captured the result images.  I remain responsible for checking and explaining the submitted work.
+For this E-commerce Project, the following AI tools were deployed to help with the project; GitHub Copilot and the portfolio generator to help prepare the database model, scripts and explanations. The generator ran the PostgreSQL and MongoDB exercises, carefully checked their outputs and captured the result images. However for the checking, compiling & explaining of the submitted work itself, that was done by me.
 
 ## References
 
