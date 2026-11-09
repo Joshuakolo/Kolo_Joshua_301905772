@@ -1,0 +1,103 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1244 >>
+stream
+BT
+/F1 18 Tf
+50 760 Td
+(MIT 8103 Advanced Database Systems) Tj
+0 -28 Td
+/F1 12 Tf
+(E-commerce Platform - Joshua Kolo - Student ID 301905772) Tj
+0 -28 Td
+/F1 14 Tf
+(Case study) Tj
+0 -22 Td
+/F1 10 Tf
+(My case study project is centred around an E-commerce Platform. The database supports customers placing and reviewing orders, with store attendants able to review order activity and related records.) Tj
+0 -18 Td
+(Figure 1 presents the ER model for customers, products, orders, order items, and reviews.) Tj
+0 -28 Td
+/F1 14 Tf
+(Portfolio 1: Database Design and Modelling) Tj
+0 -22 Td
+/F1 10 Tf
+(The relational design uses four core tables with primary keys, foreign keys, and checks that enforce business rules. A customer may have at most one active basket and product records are linked to orders through valid item entries.) Tj
+0 -18 Td
+(The design also shows the relationships between customer, product, order, order item, and review entities. This keeps the data normalized and supports reliable querying.) Tj
+0 -28 Td
+/F1 14 Tf
+(Portfolio 2: Query Processing and Optimisation) Tj
+0 -22 Td
+/F1 10 Tf
+(I ran three SQL queries against the sample records. The join returned two rows and included ava@example.test with MUG-001. For the index comparison, I used 20,000 performance rows and compared execution plans to show the impact of indexing.) Tj
+0 -18 Td
+(This exercise highlighted the value of efficient joins, selective filters, and query planning when working with larger datasets.) Tj
+0 -28 Td
+/F1 14 Tf
+(Portfolio 3: Transactions and Concurrency) Tj
+0 -22 Td
+/F1 10 Tf
+(For this task, I used a temporary counter on orders to test COMMIT, ROLLBACK, and READ COMMITTED isolation. The uncommitted update remained hidden from the other session until it was committed or rolled back.) Tj
+0 -18 Td
+(The exercise reinforced how transaction boundaries protect consistency while still allowing controlled concurrent access.) Tj
+0 -28 Td
+/F1 14 Tf
+(Portfolio 4: NoSQL and Advanced Data Models) Tj
+0 -22 Td
+/F1 10 Tf
+(I used order_events as the event-document collection. MongoDB inserted four sample events and returned the expected results for four queries. Validation rejected invalid dates and duplicate event IDs.) Tj
+0 -18 Td
+(This demonstrated how document-based models support flexible event storage while maintaining validation rules.) Tj
+0 -28 Td
+/F1 14 Tf
+(Portfolio 5: Distributed and Cloud Database Exercise) Tj
+0 -22 Td
+/F1 10 Tf
+(Three MongoDB replica members were proposed across separate failure zones. This covered elections, majority acknowledgement, secondary lag, and sharding trade-offs for order_events.) Tj
+0 -18 Td
+(The design demonstrates how durability and availability can be balanced in distributed systems.) Tj
+0 -28 Td
+/F1 14 Tf
+(Individual reflection) Tj
+0 -22 Td
+/F1 10 Tf
+(I organized the project database by keeping customers, products, orders, and order items in separate tables. This made the data easier to maintain and reduced duplication.) Tj
+0 -18 Td
+(I also experienced a two-session concurrency issue where both sessions read the same data before either updated it. This showed the importance of transaction and isolation understanding.) Tj
+0 -18 Td
+(Additionally, checking the execution plan alongside the results taught me that different database strategies can produce the same output with very different levels of performance.) Tj
+0 -28 Td
+/F1 14 Tf
+(References) Tj
+0 -22 Td
+/F1 10 Tf
+(PostgreSQL constraints, PostgreSQL EXPLAIN, PostgreSQL isolation, PostgreSQL row locks, MongoDB data modelling, MongoDB replication, MongoDB sharding, Mermaid ER diagrams) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000010 00000 n 
+0000000064 00000 n 
+0000001224 00000 n 
+0000002727 00000 n 
+0000004011 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+4082
+%%EOF
