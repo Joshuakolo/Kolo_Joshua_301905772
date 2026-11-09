@@ -22,7 +22,7 @@ I ran three SQL queries against the sample records. The join returned 2 rows and
 
 ## Portfolio 3: Transactions and Concurrency
 
-For this task, I made use of a temporary counter on orders to test COMMIT, ROLLBACK and READ COMMITTED isolation. The uncommitted update(s) were kept hidden from the other session, and subsequently, ROLLBACK restored the earlier committed value. Without locking, two increments left the counter at 2. With SELECT FOR UPDATE, Session B waited for Session A and the final value was 3. The helper is confined to this exercise; the case's original business fields stay unchanged.
+For this task, I made use of a temporary counter on orders to test COMMIT, ROLLBACK and READ COMMITTED isolation. The uncommitted update(s) were kept hidden from the other session, and subsequently the ROLLBACK restored the earlier committed value. Without locking, two increments left the counter at 2. With SELECT FOR UPDATE, Session B waited for Session A and the final value was 3. The helper is confined to this exercise; the case's original business fields stay unchanged.
 
 ## Portfolio 4: NoSQL and Advanced Data Models
 
@@ -39,7 +39,7 @@ The portfolio folders contain the SQL and JavaScript, explanations, query plans,
 
 ## Portfolio 5: Distributed and Cloud Database Exercise
 
-I proposed three MongoDB replica members across separate failure zones. The discussion covers primary elections, majority acknowledgement, secondary lag and sharding trade-offs for order_events. Replication supports availability, while backups address recovery. PostgreSQL needs its own availability plan. This is the permitted discussion option; no live replica set or failover test was deployed.
+Three MongoDB replica members were proposed across separate failure zones. This primarily covers elections, majority acknowledgement, secondary lag and sharding trade-offs for order_events. Replication supports availability, while backups address recovery. PostgreSQL needs its own availability plan. This is the permitted discussion option; no live replica set or failover test was deployed.
 
 ## Individual reflection
 
