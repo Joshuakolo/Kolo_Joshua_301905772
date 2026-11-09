@@ -4,11 +4,11 @@
 
 ## Case study
 
-My case study is E-commerce Platform. I designed the database for customers placing and reviewing orders and store staff reviewing order activity, with separate tables named customers, products, orders and order_items. It supports these operations: create an order and add product line items; find a customer's recent orders; summarize units and sales by product.
+My case study project is centred around an E-commerce Platform. The database for customers placing and reviewing orders, as well as store attendants been able to review order activity, with separate tables created for customers, products, orders and order_items. It supports the following operations: create an order and add product line items; find a customer's recent orders; summarize units and sales by product.
 
 ## Portfolio 1: Database Design and Modelling
 
-I organised the relational design into 4 tables. Primary keys identify records, foreign keys preserve the links, and checks enforce the stated business rules. A customer may have at most one order whose status is cart; enforce a partial unique constraint on customer_id for rows with status cart. The normalisation examples show the sample data at 1NF, 2NF and 3NF. All 12 deliberately invalid inserts were rejected without changing the valid sample rows.
+The relational design was organised into 4 tables. Primary keys identify records, foreign keys preserve the links, and checks enforce the stated business rules. A customer may have at most one order whose status is cart; enforce a partial unique constraint on customer_id for rows with status cart. The normalisation examples show the sample data at 1NF, 2NF and 3NF. All 12 deliberately invalid inserts were rejected without changing the valid sample rows.
 
 ![E-commerce Platform ER diagram](images/Kolo_Joshua_301905772_ERDiagram.png)
 
@@ -22,7 +22,7 @@ I ran three SQL queries against the sample records. The join returned 2 rows and
 
 ## Portfolio 3: Transactions and Concurrency
 
-I used a temporary counter on orders to test COMMIT, ROLLBACK and READ COMMITTED isolation. The uncommitted update remained hidden from the other session, and ROLLBACK restored the earlier committed value. Without locking, two increments left the counter at 2. With SELECT FOR UPDATE, Session B waited for Session A and the final value was 3. The helper is confined to this exercise; the case's original business fields stay unchanged.
+For this task, I made use of a temporary counter on orders to test COMMIT, ROLLBACK and READ COMMITTED isolation. The uncommitted update(s) were kept hidden from the other session, and subsequently, ROLLBACK restored the earlier committed value. Without locking, two increments left the counter at 2. With SELECT FOR UPDATE, Session B waited for Session A and the final value was 3. The helper is confined to this exercise; the case's original business fields stay unchanged.
 
 ## Portfolio 4: NoSQL and Advanced Data Models
 
